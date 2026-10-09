@@ -1,0 +1,71 @@
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies and build files
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Editor files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Python cache and virtual environments
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Raw datasets
+ml-service/data/raw/
+
+# Old nested project repository
+/AI-Powered-Nutrition-Intelligence-System-for-Health-Assessment-and-Personaliz-Diet-Recomme-AUG-2026/
+
+# Intermediate processed CSV files
+ml-service/data/processed/*.csv
+ml-service/data/processed/**/*.csv
+
+# Keep important final datasets
+!ml-service/data/processed/nutrition_ml_final.csv
+!ml-service/data/processed/feature_dictionary.csv
+!ml-service/data/processed/summary_statistics.csv
+
+# Keep multi-label model results
+!ml-service/data/processed/model_results_multilabel/
+!ml-service/data/processed/model_results_multilabel/multilabel_random_forest_results.csv
+
+# Keep SHAP results
+!ml-service/data/processed/shap_results/
+!ml-service/data/processed/shap_results/*.csv
+
+# Ignore trained models by default
+ml-service/models/*
+
+# Keep the directory containing the API model
+!ml-service/models/multilabel/
+
+# Ignore other models in that directory
+ml-service/models/multilabel/*
+
+# Keep the model required by the API
+!ml-service/models/multilabel/multilabel_random_forest.pkl

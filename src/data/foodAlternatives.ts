@@ -1,0 +1,18 @@
+export const foodAlternatives: Record<string, string[]> = {
+  Spinach: ["Broccoli", "Beans"],
+  Lentils: ["Chickpeas", "Kidney Beans"],
+  Chickpeas: ["Lentils", "Kidney Beans"],
+  "Kidney Beans": ["Lentils", "Chickpeas"],
+  Tofu: ["Lentils", "Chickpeas"],
+  "Pumpkin Seeds": ["Lentils", "Chickpeas"],
+  Eggs: ["Tofu", "Fortified Plant Milk"],
+  "Fatty Fish": ["Fortified Milk", "Fortified Plant Milk"],
+  "Fortified Milk": ["Fortified Plant Milk", "Fortified Yogurt"],
+  "Fortified Yogurt": ["Fortified Milk", "Fortified Plant Milk"],
+  "Fortified Plant Milk": ["Fortified Milk", "Fortified Yogurt"],
+  "Fortified Cereals": ["Fortified Plant Milk", "Eggs"],
+  Broccoli: ["Spinach", "Beans"],
+  Avocado: ["Oranges", "Spinach"],
+  Oranges: ["Avocado", "Broccoli"],
+  Beans: ["Lentils", "Chickpeas"],
+};

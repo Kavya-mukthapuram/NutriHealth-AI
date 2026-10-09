@@ -1,0 +1,41 @@
+feature,feature_group,description,data_type,available_count,missing_count,missing_percent
+ridageyr,demographic,Age in years,float64,11933,0,0.0
+riagendr,demographic,Gender code,float64,11933,0,0.0
+ridreth3,demographic,Race and Hispanic origin classification,float64,11933,0,0.0
+dmdeduc2,demographic,Education level,float64,7794,4139,34.69
+indfmpir,demographic,Family income to poverty ratio,float64,9892,2041,17.1
+calories,dietary,Daily energy intake,float64,6696,5237,43.89
+protein,dietary,Daily protein intake,float64,6696,5237,43.89
+carbohydrates,dietary,Daily carbohydrate intake,float64,6696,5237,43.89
+sugar,dietary,Daily sugar intake,float64,6696,5237,43.89
+fiber,dietary,Daily fiber intake,float64,6696,5237,43.89
+fat,dietary,Daily fat intake,float64,6696,5237,43.89
+vitamin_b12,dietary,Daily vitamin B12 intake,float64,6696,5237,43.89
+folate,dietary,Daily folate intake,float64,6696,5237,43.89
+vitamin_c,dietary,Daily vitamin C intake,float64,6696,5237,43.89
+vitamin_d,dietary,Daily vitamin D intake,float64,6696,5237,43.89
+calcium,dietary,Daily calcium intake,float64,6696,5237,43.89
+magnesium,dietary,Daily magnesium intake,float64,6696,5237,43.89
+iron,dietary,Daily iron intake,float64,6696,5237,43.89
+zinc,dietary,Daily zinc intake,float64,6696,5237,43.89
+vitamin_a,dietary,Daily vitamin A intake,float64,6696,5237,43.89
+vitamin_k,dietary,Daily vitamin K intake,float64,6696,5237,43.89
+lbxhgb,laboratory,Hemoglobin measurement,float64,7593,4340,36.37
+lbxfer,laboratory,Ferritin measurement,float64,1950,9983,83.66
+lbxtfr,laboratory,Transferrin receptor measurement,float64,1949,9984,83.67
+lbdrfo,laboratory,Red blood cell folate measurement,float64,7506,4427,37.1
+lbxvidms,laboratory,Serum vitamin D measurement,float64,7307,4626,38.77
+lbxsir,laboratory,Serum iron measurement,float64,6364,5569,46.67
+lbxmagn,laboratory,Serum magnesium measurement,float64,6324,5609,47.0
+lbxsca,laboratory,Serum calcium measurement,float64,6362,5571,46.69
+mcq053,health_questionnaire,Anemia treatment in past 3 months,float64,11733,200,1.68
+mcq010,health_questionnaire,Asthma history,float64,11728,205,1.72
+agq030,health_questionnaire,Hay fever or seasonal allergy history,float64,11732,201,1.68
+mcq160m,health_questionnaire,Thyroid condition,float64,7787,4146,34.74
+mcq160l,health_questionnaire,Liver condition,float64,7794,4139,34.69
+mcq160p,health_questionnaire,COPD/emphysema/chronic bronchitis,float64,7793,4140,34.69
+mcq160a,health_questionnaire,Arthritis,float64,7790,4143,34.72
+mcq160b,health_questionnaire,Congestive heart failure,float64,7791,4142,34.71
+mcq160c,health_questionnaire,Coronary heart disease,float64,7773,4160,34.86
+mcq160e,health_questionnaire,Heart attack history,float64,7794,4139,34.69
+mcq160f,health_questionnaire,Stroke history,float64,7785,4148,34.76
