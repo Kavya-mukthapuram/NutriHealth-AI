@@ -1,75 +1,125 @@
-# React + TypeScript + Vite
+# NutriHealth AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## AI-Powered Nutrition Intelligence System for Health Assessment and Personalized Diet Recommendations
 
-Currently, two official plugins are available:
+NutriHealth AI is a web-based application that helps users manage their health profiles, track daily food intake, assess nutritional deficiency risks, and receive personalized diet recommendations using machine learning.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- User Registration and Login
+- Health Profile Management
+- Food Diary and Meal Tracking
+- Nutritional Information Analysis
+- Nutritional Deficiency Risk Assessment
+- Machine Learning-Based Predictions
+- Personalized Diet Recommendations
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
 
-## Expanding the ESLint configuration
+**Frontend**
+- React
+- TypeScript
+- Vite
+- HTML
+- CSS
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**Machine Learning and API**
+- Python
+- FastAPI
+- Scikit-learn
+- Joblib
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**Database and Authentication**
+- Supabase
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Machine Learning Model
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+The project includes a Multi-Label Random Forest model designed to assess nutritional deficiency risks using health-related and nutritional data.
 
+## Project Structure
+
+- `src/` – Frontend application
+- `ml-service/src/` – Machine learning service and API
+- `ml-service/models/` – Trained machine learning models
+- `ml-service/data/processed/` – Processed datasets and analysis results
+
+## **Installation and Setup**
+
+### **1. Clone the Repository**
+
+```bash
+git clone https://github.com/Kavya-mukthapuram/NutriHealth-AI.git
+cd NutriHealth-AI
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+### **2. Install Frontend Dependencies**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Install the required Node.js packages:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
 ```
+
+### **3. Start the Frontend**
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Open the local URL displayed in your terminal to access the application.
+
+### **4. Install Machine Learning Service Dependencies**
+
+Navigate to the ML service directory:
+
+```bash
+cd ml-service
+```
+
+Create a Python virtual environment:
+
+```bash
+py -m venv venv
+```
+
+Activate the virtual environment on Windows:
+
+```powershell
+.\venv\Scripts\Activate
+```
+
+Install the required Python packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+### **5. Run the Machine Learning API**
+
+Start the FastAPI service:
+
+```bash
+uvicorn src.api:app --reload
+```
+
+**API URL:**
+
+```text
+http://127.0.0.1:8000
+```
+
+**Interactive API Documentation:**
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+## **Author**
+
+**M. Kavya**
+
+## **Disclaimer**
+
+This project is intended for educational and informational purposes only. Its results should not replace professional medical advice, diagnosis, or treatment.
