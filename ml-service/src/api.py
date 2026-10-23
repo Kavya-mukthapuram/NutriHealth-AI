@@ -33,9 +33,9 @@ app.add_middleware(
 # LOAD MODEL
 # ------------------------------------------------------------
 
-MODEL_PATH = Path(
-    "models/multilabel/multilabel_random_forest.pkl"
-)
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+MODEL_PATH = BASE_DIR / "models" / "multilabel" / "multilabel_random_forest.pkl"
 
 try:
     pipeline = joblib.load(MODEL_PATH)
@@ -49,9 +49,7 @@ except Exception as e:
 # LOAD SHAP FEATURE IMPORTANCE
 # ------------------------------------------------------------
 
-SHAP_DIR = Path(
-    "data/processed/shap_results"
-)
+SHAP_DIR = BASE_DIR / "data" / "processed" / "shap_results"
 
 SHAP_FILES = {
     "iron_deficiency": SHAP_DIR / "iron_deficiency_shap_importance.csv",
