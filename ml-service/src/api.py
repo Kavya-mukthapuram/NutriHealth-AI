@@ -8,7 +8,9 @@ from pathlib import Path
 
 import os
 import requests
+from dotenv import load_dotenv
 
+load_dotenv()
 
 # ============================================================
 # TASK 9 - FASTAPI PREDICTION SERVICE
@@ -316,7 +318,7 @@ def predict(request: PredictionRequest):
         )
 
 
-    # ------------------------------------------------------------
+# ------------------------------------------------------------
 # USDA FOOD SEARCH ENDPOINT
 # ------------------------------------------------------------
 
@@ -332,6 +334,12 @@ def search_foods(query: str, pageSize: int = 10):
             detail="USDA API key is not configured on the server."
         )
 
+    if not query.strip():
+        raise HTTPException(
+            status_code=400,
+            detail="Food search query cannot be empty."
+        )
+
     try:
         response = requests.get(
             "https://api.nal.usda.gov/fdc/v1/foods/search",
@@ -343,16 +351,12 @@ def search_foods(query: str, pageSize: int = 10):
             timeout=15,
         )
 
-        if response.status_code != 200:
-            raise HTTPException(
-                status_code=502,
-                detail="USDA food search failed."
-            )
-
+        response.raise_for_status()
         return response.json()
 
-    except requests.RequestException:
+    except requests.RequestException as exc:
         raise HTTPException(
             status_code=502,
-            detail="Unable to connect to USDA FoodData Central."
-        )
+            detail="USDA food search is temporarily unavailable."
+        ) from exc
+

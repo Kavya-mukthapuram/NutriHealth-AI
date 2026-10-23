@@ -8,7 +8,7 @@ export interface MealFood {
   nutrient: string;
 }
 
-const USDA_API_KEY = import.meta.env.VITE_USDA_API_KEY;
+const ML_API_URL = "https://nutrihealth-ai.onrender.com";
 
 const nutrientQueries: Record<string, string[]> = {
   iron_deficiency: [
@@ -153,10 +153,8 @@ export async function getMealFoods(
     uniqueQueries.map(async (query) => {
       try {
         const response = await fetch(
-          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${USDA_API_KEY}&query=${encodeURIComponent(
-            query
-          )}&pageSize=10`
-        );
+  `${ML_API_URL}/foods/search?query=${encodeURIComponent(query)}&pageSize=10`
+);
 
         if (!response.ok) {
           return [];
