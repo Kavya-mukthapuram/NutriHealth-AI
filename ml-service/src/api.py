@@ -6,6 +6,9 @@ import numpy as np
 import joblib
 from pathlib import Path
 
+import os
+import requests
+
 
 # ============================================================
 # TASK 9 - FASTAPI PREDICTION SERVICE
@@ -310,4 +313,46 @@ def predict(request: PredictionRequest):
         raise HTTPException(
             status_code=400,
             detail=str(e)
+        )
+
+
+    # ------------------------------------------------------------
+# USDA FOOD SEARCH ENDPOINT
+# ------------------------------------------------------------
+
+USDA_API_KEY = os.getenv("USDA_API_KEY")
+
+
+@app.get("/foods/search")
+def search_foods(query: str, pageSize: int = 10):
+
+    if not USDA_API_KEY:
+        raise HTTPException(
+            status_code=500,
+            detail="USDA API key is not configured on the server."
+        )
+
+    try:
+        response = requests.get(
+            "https://api.nal.usda.gov/fdc/v1/foods/search",
+            params={
+                "api_key": USDA_API_KEY,
+                "query": query,
+                "pageSize": min(max(pageSize, 1), 20),
+            },
+            timeout=15,
+        )
+
+        if response.status_code != 200:
+            raise HTTPException(
+                status_code=502,
+                detail="USDA food search failed."
+            )
+
+        return response.json()
+
+    except requests.RequestException:
+        raise HTTPException(
+            status_code=502,
+            detail="Unable to connect to USDA FoodData Central."
         )
